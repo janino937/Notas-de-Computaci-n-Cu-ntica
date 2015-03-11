@@ -1,0 +1,511 @@
+\documentclass[letter,twoside,12pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsthm}
+\usepackage{fullpage}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{braket}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\title{Computación Cuántica: Tarea \#1}
+\newtheorem{theo}{Teorema}
+\newtheorem{lemma}[theo]{Lema}
+\newtheorem*{defi}{Definición}
+\author{Jonathan Andrés Niño Cortés}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Si
+\begin{equation}
+|a \rangle = 
+\begin{pmatrix}
+-2
+\\ 4i
+\\ 1
+\end{pmatrix} \,
+|b \rangle = 
+\begin{pmatrix}
+1
+\\ 0
+\\ i
+\end{pmatrix} \nonumber
+\end{equation}
+\begin{enumerate}
+\item $ \langle a | = \begin{pmatrix}
+-2 & -4i & 1
+\end{pmatrix} $
+
+\item $ \langle b | = \begin{pmatrix}
+1 & 0 & -i
+\end{pmatrix} $
+
+\item $ \langle a | b \rangle = -2+ i$
+
+\item $ \langle b | a \rangle = -2 -i $
+
+\item $ | c \rangle = | a \rangle +2| b \rangle = \begin{pmatrix}
+0 
+\\ 4i 
+\\ 1+2i
+\end{pmatrix} $
+
+\item $ \langle c | a \rangle = \begin{pmatrix}
+-15-2i
+\end{pmatrix} $
+
+\item $ \frac{| a \rangle}{||a||} = \frac{1}{\sqrt{21}}\begin{pmatrix}
+-2 
+\\ 4i 
+\\ 1
+\end{pmatrix}  $
+\end{enumerate}
+\item 
+
+$ |+ \rangle = \frac{|0 \rangle + |1 \rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1
+\\1
+\end{pmatrix} $ y $ |- \rangle = \frac{|0 \rangle - |1 \rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1
+\\-1
+\end{pmatrix} $
+
+La matriz de cambio de base de esta base a la canónica es
+$ \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 &  1
+\\ 1 & -1
+\end{pmatrix}
+ $
+ 
+Por otra parte la matriz inversa obtenida a través de Gauss-Jordan da de nuevo $ \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 &  1
+\\ 1 & -1
+\end{pmatrix}
+ $. Esta es la propiedad que esperabamos de la compuerta de Hadamard.
+\item Utilizando Grand-Schmidt, tome $ |w_1 \rangle = \frac{v_1}{||v_1||} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+i
+\\ 1
+\end{pmatrix} $.
+
+Ahora tome $ |w_2' \rangle = |v_2 \rangle - \frac{\langle v_1 | v_2 \rangle}{\langle v_1 | v_1 \rangle} | v_1 \rangle = \begin{pmatrix}
+1+i 
+\\ 2
+\end{pmatrix}-\frac{3-i}{2}\begin{pmatrix}
+i 
+\\ 1
+\end{pmatrix} = \begin{pmatrix}
+1+i-\frac{1+3i}{2} 
+\\ 2-\frac{3-i}{2}
+\end{pmatrix} = \begin{pmatrix}
+\frac{1-i}{2} 
+\\ \frac{1+i}{2}
+\end{pmatrix}$
+
+Y $ |w_2 \rangle = \frac{|w_2 ' \rangle}{\langle w_2' | w_2' \rangle} = |w_2' \rangle$ pues, $ \langle w_2' | w_2' \rangle = 1$.  
+
+\item Sea $ |h \rangle $ y $ |v \rangle $ vectores ortogonales y unitarios. Sea
+\begin{eqnarray}
+|\psi_1 \rangle &=& 1/2|h \rangle + \sqrt{3}/2 | v \rangle \nonumber
+\\|\psi_2 \rangle &=& 1/2|h \rangle - \sqrt{3}/2 | v \rangle \nonumber
+\\|\psi_3 \rangle &=& |h \rangle \nonumber
+\end{eqnarray} 
+Calcular 
+\begin{enumerate}
+\item $ \langle \psi_1 | \psi_2 \rangle = \langle \psi_1 | (1/2|h \rangle - \sqrt{3}/2 | v \rangle) \rangle = 1/2 \langle \psi_1 | h \rangle - \sqrt{3}/2\langle \psi_1 | v \rangle $
+
+$ =  1/2 \langle 1/2|h \rangle + \sqrt{3}/2 | v \rangle | h \rangle - \sqrt{3}/2\langle 1/2|h \rangle + \sqrt{3}/2 | v \rangle | v \rangle $
+
+$ = (1/2)(1/2) \langle h|h \rangle + (\sqrt{3}/2)(1/2) \langle v| h \rangle  - (\sqrt{3}/2)(1/2)\langle h |v \rangle - (\sqrt{3}/2) (\sqrt{3}/2) \langle v | v \rangle $
+
+$ = 1/4 + 0 + 0 - 3/4 = - 1/2 $.
+
+Luego $ |\langle \psi_1|\psi_2\rangle|^2 = 1/4 $
+
+\item $ \langle \psi_1 | \psi_3 \rangle = \langle \psi_1 | h \rangle = \langle 1/2|h \rangle + \sqrt{3}/2 | v \rangle | h \rangle = 1/2 \langle h|h \rangle + \sqrt{3}/2 \langle v|h \rangle = 1/2$
+
+Luego $ |\langle \psi_1|\psi_3\rangle|^2 = 1/4 $
+
+\item $ \langle \psi_3 | \psi_2 \rangle = \langle h | \psi_2 \rangle = \langle h | 1/2|h \rangle - \sqrt{3}/2 \ = 1/2\langle h |h \rangle - \sqrt{3}/2 \langle h |v \rangle = 1/2 $
+
+Luego $ |\langle \psi_3|\psi_2\rangle|^2 = 1/4 $
+
+\end{enumerate}
+
+\item \begin{enumerate} \item Por el hint podemos ver que $ |0 \rangle \langle 0| $ es equivalente a proyección sobre el espacio generado por $ |0 \rangle $. Asimismo, $ |1 \rangle \langle 1 | $ es la matriz de proyección en la segunda coordenada. Luego,
+
+$ |0 \rangle \langle 0| - |1 \rangle \langle 1| = \begin{pmatrix}
+1 & 0
+\\ 0 & -1
+\end{pmatrix} $
+\item $ |00 \rangle \langle 11|$ es el operador que envia $ |x \rangle $ a $ \langle 11|x \rangle |00 \rangle $ entonces la matriz que la representa es
+
+$$ \begin{pmatrix}
+0&0&0&1
+\\0&0&0&0
+\\0&0&0&0
+\\0&0&0&0
+\end{pmatrix} $$
+
+Los demás son similares y dan como resultado
+$ |00\rangle \langle 11|+2|00 \rangle  \langle 10|+3|11 \rangle \langle 01| = $
+
+$ \begin{pmatrix}
+0&0&0&1
+\\0&0&0&0
+\\0&0&0&0
+\\0&0&0&0
+\end{pmatrix} $ +
+$ \begin{pmatrix}
+0&0&2&0
+\\0&0&0&0
+\\0&0&0&0
+\\0&0&0&0
+\end{pmatrix} $+
+$ \begin{pmatrix}
+0&0&0&0
+\\0&0&0&0
+\\0&0&0&0
+\\0&3&0&0
+\end{pmatrix} =
+\begin{pmatrix}
+0&0&2&1
+\\0&0&0&0
+\\0&0&0&0
+\\0&3&0&0
+\end{pmatrix}$
+
+\end{enumerate}
+
+\item Vamos a demostrar que $ A = \sum_{i=1}^n | u_i \rangle \langle u_1 |$ es la identidad. Tome cualquier vector $ |x \rangle $ en el espacio. Entonces se puede representar de forma única como $ a_1| u_1 \rangle + a_2| u_2 \rangle+\cdots + a_n| u_n \rangle,  $. Pero obsérvese que $ |u_i \rangle \langle u_i|| x \rangle = \langle u_i| x \rangle |u_i \rangle $. Pero, $ \langle u_i| x \rangle |u_i \rangle = \langle u_i| (a_1| u_1 \rangle + a_2| u_2 \rangle+\cdots + a_n| u_n \rangle) \rangle |u_i \rangle = (a_1 \langle u_i|u_1 \rangle  + a_2 \langle u_i|u_2 \rangle + \cdots + a_n \langle u_i|u_n \rangle) | u_i \rangle $, pero como la base es ortonormal, todos los términos exceptuando $ a_i\langle u_i | u_i \rangle = a_i$ desapareceran y obtenemos que $ \langle u_i| x \rangle |u_i \rangle = a_i |u_i \rangle$.
+
+Por lo tanto, $ A = (\sum_{i=1}^n | u_i \rangle \langle u_1 |)|x \rangle = \sum_{i=1}^n \langle u_i|x \rangle | u_i \rangle  = \sum_{i=1}^n a_i | u_i \rangle = |x \rangle $.
+
+\item $ |\psi \rangle \langle \phi |$ es tal que envia $ |x \rangle  $ a $ \langle \phi | x \rangle |\psi \rangle $. Tenemos que
+
+$ \langle \phi | 1 \rangle |\psi \rangle = \langle (e|1\rangle + f|2\rangle +g|3\rangle)| 1 \rangle |\psi \rangle  = (\overline{e}\langle 1|1 \rangle + \overline{f}\langle 2|1 \rangle + \overline{g}\langle 3|1 \rangle )|\psi \rangle = \overline{e}|\psi \rangle = \overline{e}a|1 \rangle + \overline{e}b|2 \rangle + \overline{e}c|3 \rangle$
+
+Similarmente,
+
+$ \langle \phi | 2 \rangle |\psi \rangle = \langle (e|1\rangle + f|2\rangle +g|3\rangle)| 2 \rangle |\psi \rangle  = (\overline{e}\langle 1|2 \rangle + \overline{f}\langle 2|2 \rangle + \overline{g}\langle 3|2 \rangle )|\psi \rangle = \overline{f}|\psi \rangle = \overline{f}a|1 \rangle + \overline{f}b|2 \rangle + \overline{f}c|3 \rangle$
+
+Y por último,
+
+$ \langle \phi | 3 \rangle |\psi \rangle = \langle (e|1\rangle + f|2\rangle +g|3\rangle)| 3 \rangle |\psi \rangle  = (\overline{e}\langle 1|3 \rangle + \overline{f}\langle 2|3 \rangle + \overline{g}\langle 3|3 \rangle )|\psi \rangle = \overline{g}|\psi \rangle = \overline{g}a|1 \rangle + \overline{g}b|2 \rangle + \overline{f}g|3 \rangle$
+
+Luego la representación matricial de $ |\psi \rangle \langle \phi | $ es 
+
+$$ \begin{pmatrix}
+\overline{e}a & \overline{f}a & \overline{g}a
+\\\overline{e}b & \overline{f}b & \overline{g}b
+\\\overline{e}c & \overline{f}c & \overline{g}c
+\end{pmatrix} $$
+
+\item \begin{enumerate}
+\item Tenemos que $ \langle a | (\alpha A)^\dagger | b \rangle = \overline{\langle b | \alpha A | a \rangle} = \overline{\alpha} \overline{\langle b | A | a \rangle} = \overline{\alpha}{\langle a | A^\dagger | b \rangle} ={\langle a | \overline{\alpha} A^\dagger | b \rangle} $.
+
+\item 
+\end{enumerate}
+
+\item Calcule el adjunto de $ 2\ket{0}\bra{1}-i\ket{1}\bra{0} $
+
+La matriz asociada a este elemento es 
+
+$$ \begin{pmatrix}
+0 & 2
+\\ -i & 0
+\end{pmatrix} $$
+
+Por el punto anterior sabemos que $ A^\dagger $ es la transpuesta de la conjugada de $ A $ luego la matriz adjunta es
+ 
+$$ \begin{pmatrix}
+0 & i
+\\ 2 & 0
+\end{pmatrix} $$ 
+
+\item $ A = \begin{pmatrix}
+0 & 0 & i
+\\0 & 1 & 0
+\\ -i & 0 & 0
+\end{pmatrix}
+ $
+ 
+ Calculamos valores y vectores propios
+ 
+ $ |A-\lambda Id| = \begin{vmatrix}
+-\lambda & 0 & i
+\\ 0 & 1 - \lambda & 0
+\\ -i & 0 & -\lambda
+\end{vmatrix} =
+-\lambda\begin{vmatrix}
+1-\lambda & 0
+\\0 & -\lambda
+\end{vmatrix} + i \begin{vmatrix}
+0 & 1-\lambda
+\\-i & 0
+\end{vmatrix} =$
+
+$ - \lambda(1-\lambda)(- \lambda)+i(-1)(1-\lambda)(-i) = -\lambda^3+\lambda^2+\lambda-1 = -(\lambda+1)(\lambda^2-2\lambda+1)=-(\lambda+1)(\lambda-1)^2$
+
+El vector propio asociado a -1 lo obtenemos del kernel de
+$ \begin{pmatrix} 
+1 & 0 & i
+\\ 0 & 2 & 0
+\\ -i & 0 & 1
+\end{pmatrix}  $
+
+Calculando obtenemos que este kernel es generado por el vector normalizado $ \ket{1}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+1
+\\0
+\\-i
+\end{pmatrix} $
+
+Por otra parte los valores propios asociados al valor 1 se obtienen del kernel de $ \begin{pmatrix}
+-1 & 0 & i
+\\0 &0 & 0
+\\-i & 0 & -1
+\end{pmatrix} $
+
+Calculando obtenemos que este espacio es generado por los vectores normalizados $ \ket{2} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+1  \\ 0 \\ i
+\end{pmatrix} $ y  $ \ket{3}=\begin{pmatrix}
+0  \\ 1 \\ 0
+\end{pmatrix} $ 
+
+Estos vectores forman una base ortonormal por lo que podemos escribir $ A = -1\ket{1}\bra{1}+\ket{2}\bra{2}+\ket{3}\bra{3}$.
+
+\item Las matrices de Pauli son
+
+$ \sigma_x = \begin{pmatrix}
+0 & 1
+\\1 & 0
+\end{pmatrix}$ 
+$ Y = \begin{pmatrix}
+0 & -i
+\\i & 0
+\end{pmatrix}$ 
+$ Z = \begin{pmatrix}
+1 & 0
+\\0 & -1
+\end{pmatrix}$
+
+diagonalize las matrices de Pauli.
+
+El polinomio característico de $ \sigma_x $ es $ \lambda^2-1 = (\lambda-1)(\lambda+1)$. El vector propio asociado a $ 1 $ es $ \ket{+}= \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 \\ 1
+\end{pmatrix} $ y el vector propio asociado a -1 es $ \ket{-}= \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 \\ -1
+\end{pmatrix}$ 
+
+El polinomio característico de $ Y $ es también $ \lambda^2-1 = (\lambda-1)(\lambda+1)$. El vector propio asociado a $ 1 $ es $ \ket{+}= \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 \\ 1
+\end{pmatrix} $ y el vector propio asociado a -1 es $ \ket{-}= \frac{1}{\sqrt{2}}\begin{pmatrix}
+1 \\ -1
+\end{pmatrix}$ 
+
+\item Muestre que $ Tr(A \ket{\phi}\bra{\psi})= \braket{\psi|A|\phi} $
+$ Tr(A)= \sum_{i=1}^n a_ii = \sum_{i=1}^n \braket{u_i|A|u_i} $.
+
+Por otra parte, 
+\begin{eqnarray}
+Tr(A|\phi \times \psi|) &=& \sum_{i=1}^n \braket{u_i|A|\phi \times \psi | u_i} \nonumber
+\\ &=& \sum_{i=1}^n \braket{ \psi | u_i \times u_i|A|\phi} \nonumber
+\\ &=& \braket{ \psi | \sum_{i=1}^n u_i \times u_i|A|\phi} \nonumber
+\end{eqnarray}
+Pero vimos que $ \sum_{i=1}^n u_i \times u_i$ es la identidad luego esto es igual a $ \braket{\psi|A|\phi} $.
+
+\item
+
+\item \begin{enumerate}
+
+\item \begin{eqnarray} [\sigma_x, \sigma_y ] &=& \sigma_x\sigma_y - \sigma_y\sigma_x \nonumber
+\\ &=& \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}-\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix}-\begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} -2i & 0 \\ 0 & 2i \end{pmatrix}= -2i\sigma_z\nonumber
+\end{eqnarray}
+\item \begin{eqnarray} [\sigma_y, \sigma_z ] &=& \sigma_y\sigma_z - \sigma_z\sigma_y \nonumber
+\\ &=& \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}-\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix}-\begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} 0 & -2i \\ -2i & 0 \end{pmatrix}= -2i\sigma_x\nonumber
+\end{eqnarray}
+\item \begin{eqnarray} [\sigma_z, \sigma_x ] &=& \sigma_z\sigma_x - \sigma_x\sigma_z \nonumber
+\\ &=& \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}-\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}-\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \nonumber
+\\ &=& \begin{pmatrix} 0 & 2 \\ -2 & 0 \end{pmatrix}= -2i\sigma_y\nonumber
+\end{eqnarray}
+\end{enumerate}
+$ \ket{+}\bra{0}+\ket{-}\bra{1} =(1/\sqrt{2}\ket{0}+1/\sqrt{2}\ket{1})\bra{0} + (1/\sqrt{2}\ket{0}-1/\sqrt{2}\ket{1})\bra{1} $
+
+$ = 1/\sqrt{2}\ket{0}\bra{0}+1/\sqrt{2}\ket{1}\bra{0}+1/\sqrt{2}\ket{0}\bra{1}-1/\sqrt{2}\ket{1}\bra{1}  $ 
+
+$ = 1/\sqrt{2}(\ket{0}\bra{0}+\ket{1}\bra{0}+\ket{0}\bra{1}-\ket{1}\bra{1})  $
+
+$ = 1/\sqrt{2}(\begin{pmatrix}
+1 & 0 
+\\ 0 & 0
+\end{pmatrix}+\begin{pmatrix}
+ 0 & 0 
+\\ 1 & 0
+\end{pmatrix}+\begin{pmatrix}
+ 0 & 1 
+\\ 0 & 0
+\end{pmatrix}-\begin{pmatrix}
+ 0 & 0 
+\\ 0 & -1
+\end{pmatrix})  $
+
+$ = \frac{1}{\sqrt{2}}\begin{pmatrix}
+ 1 & 1 
+\\ 1 & -1
+\end{pmatrix} $
+
+\item \begin{enumerate}
+\item $ \sigma_x \otimes \sigma_y = \begin{pmatrix}
+0 & 0 & 0 & -i 
+\\ 0 & 0 & i & 0
+\\ 0 & -i & 0 & 0
+\\ i & 0 & 0 & 0
+\end{pmatrix}$
+
+\item  $ \sigma_y \otimes \sigma_x = \begin{pmatrix}
+0 & 0 & 0 & -i 
+\\ 0 & 0 & -i & 0
+\\ 0 & i & 0 & 0
+\\ i & 0 & 0 & 0
+\end{pmatrix}$
+
+\item $ \sigma_z \otimes \sigma_x = \begin{pmatrix}
+0 & 1 & 0 & 0 
+\\ 1 & 0 & 0 & 0
+\\ 0 & 0 & 0 & -1
+\\ 0 & 0 & -1 & 0
+\end{pmatrix}$ 
+
+\item $ \sigma_x \otimes \sigma_y \ket{\phi} = \begin{pmatrix}
+0 & 0 & 0 & -i 
+\\ 0 & 0 & -i & 0
+\\ 0 & i & 0 & 0
+\\ i & 0 & 0 & 0
+\end{pmatrix} \ket{\phi}=
+\begin{pmatrix}
+0 & 0 & 0 & -i 
+\\ 0 & 0 & -i & 0
+\\ 0 & i & 0 & 0
+\\ i & 0 & 0 & 0
+\end{pmatrix} \begin{pmatrix} 0 \\ \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \\ 0\end{pmatrix} = 
+\begin{pmatrix} 0 \\ \frac{i}{\sqrt{2}} \\ \frac{i}{\sqrt{2}} \\ 0\end{pmatrix}$ 
+\end{enumerate}
+\item El enunciado es falso.
+
+Tomese por ejemplo la base ortonormal encontrada en el punto 3.
+
+$ \ket{u_1} = \begin{pmatrix}
+i/\sqrt{2}
+\\ 1/\sqrt{2}
+\end{pmatrix} $ 
+ $ \ket{u_2} = \begin{pmatrix}
+ (i-1)/2
+ \\ (i+1)/2
+ \end{pmatrix}$ 
+
+Calculando la expresión $ \ket{u_1} \otimes \ket{u_1} + \ket{u_2} \otimes \ket{u_2} = \begin{pmatrix} -1/2 \\ i/2 \\ i/2 \\ 1/2 \end{pmatrix} + \begin{pmatrix} -i/2 \\ -1/2 \\ -1/2 \\ i/2 \end{pmatrix} = \begin{pmatrix} -1/2-i/2 \\ i/2-1/2 \\ i/2-1/2 \\ 1/2+i/2 \end{pmatrix} $
+
+Vemos que esto es diferente a $ \ket{00}+\ket{11} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 1 \end{pmatrix}$
+
+Creemos que la expresión correcta hubiera sido tomando el producto tensorial entre los vectores y sus conjugados.
+
+\end{enumerate}
+
+\begin{enumerate}
+\item Veamos que $ \{N_{l,m}\} $ es una familia de operadores de medición.
+
+En efecto,
+
+\begin{equation}
+\sum_{l,m}N_{l,m}^\dagger N_{l,m} = \sum_{l,m}(M_mL_l)^\dagger M_mL_l = \sum_{l,m}L_l^\dagger M_m^\dagger M_mL_l \nonumber = \sum_{l}L_l^\dagger \sum_{m}(M_m^\dagger M_m)L_l
+ \end{equation} 
+Pero la suma interna es igual a la identidad por nuestra suposición que $ \{M_m\} $ es una familia de operadores de medición. Luego obtenemos que $ \sum_{l,m}N_{l,m}^\dagger N_{l,m} =  \sum_{l}L_l^\dagger (I)L_l =  \sum_{l}L_l^\dagger L_l = I$
+
+y esto ultimo también es igual a la identidad por nuestra suposición que $ \{L_l\} $ también es una familia de operadores de medición.
+
+\item En un punto anterior se mostró que $ \ket{u_i}\bra{u_i} $ es el operador de proyección sobre la coordenada generada por el vector $ u_1 $. Las propiedaddes de las proyecciones es que son auto-adjuntas e idempotentes. Por lo tanto, usando primero que es autoadjunta y luego que es idempotente tenemos que
+
+\begin{equation}
+\ket{u_i}\bra{u_i}^\dagger\ket{u_i}\bra{u_i} = \ket{u_i}\bra{u_i}\ket{u_i}\bra{u_i} = \ket{u_i}\bra{u_i} \nonumber
+\end{equation}
+
+Luego $ \sum_{i = 0}^n \ket{u_i}\bra{u_i}^\dagger\ket{u_i}\bra{u_i} = \sum_{i = 0}^n \ket{u_i}\bra{u_i} $ y en un punto anterior demostramos que esto es igual a la Identidad. Por lo tanto, esto forma una familia de operadores de medición.
+
+\item $ \{P_v, I-P_v\} $ es una familia de operadores de medición.
+
+En efecto tomemos la expresión $ P_v^\dagger P_v+(I-P_v)^\dagger(I-P_v) $. Tenemos que $ (A+B)^\dagger = A^\dagger+ B^\dagger $ y que $ (\alpha A)^\dagger = \overline{\alpha}A^\dagger $. Además $ I = I^\dagger $ es unitaria y autoadjunta. Luego la expresión es equivalente a $ P_v^\dagger P_v +I-P_v- P_v^\dagger + P_v^\dagger P_v $. Pero en el punto anterior vimos que las proyecciones son autoadjuntas e idempotentes.
+
+Luego $ P_v^\dagger P_v = P_v $ y $ P_v^\dagger = P_v $. Por lo tanto, la expresión se reduce a $ P_v+I-P_v-P_v+P_v = I $.
+
+\item \begin{itemize}
+\item El primer bit sea 0. El operador asociado es
+$ \ket{0}\bra{0} \otimes \overbrace{I \otimes\cdots\otimes  I}^\text{n-1-veces} $
+
+\item Los primeros $ m $-bits sean 0. El operador asociado es
+$ \overbrace{\ket{0}\bra{0} \otimes \cdots \otimes \ket{0}\bra{0}}^\text{m-veces} \otimes \overbrace{I \otimes\cdots\otimes  I}^\text{n-m-veces} $
+
+\item El primer bit sea 0 y el segundo sea 1. El operador asociado es
+$  \ket{0}\bra{0} \otimes \overbrace{I \otimes\cdots\otimes  I}^\text{n-2-veces} \otimes \ket{1}\bra{1}  $
+
+\item Todos los bits sean 1.
+
+$  \overbrace{\ket{1}\bra{1} \otimes\cdots\otimes  \ket{1}\bra{1}}^\text{n-veces} $
+
+\end{itemize}
+
+\item En puntos anteriores ya vimos que $ P_i $ es un operador autoadjunto e idempotente. El teorema espectral me da una descomposición del espacio como la suma directa de los espacios asociados a cada valor propio.
+
+Tenemos que ver que $ \sum_{\lambda \in \text{Spec}(A)} P_\lambda^\dagger P_\lambda = I $. Pero ya vimos que $ P_\lambda^\dagger P_\lambda = P_\lambda $.
+
+Luego $ \sum_{\lambda \in \text{Spec}(A)} P_\lambda^\dagger P_\lambda = \sum_{\lambda,i} \ket{v_{\lambda,i}}\bra{v_{\lambda,i}} = I $ por el punto 2.
+
+\item \begin{enumerate}
+ \item La probabilidad que $ \ket{\psi} $ este en $ \ket{01} $ es $ 3/8 $.
+ 
+ \item La probabilidad que $ \ket{\psi} $ tenga el primer q-bit 0 es $ 1/8 + 3/8 = 1/2 $. La probabilidad que tenga el primer q-bit 1 es $ 1/4+1/4 = 1/2 $
+ 
+ \item Después de medir en el liter a) el estado resultante debe ser $ \ket{\psi'}=\ket{01} $.
+ 
+ En el literal b) en el primer caso el estado resultante sería
+ 
+ \begin{equation}
+ \ket{\psi'}=\frac{1/\sqrt{8}\ket{00} + \sqrt{3/8}\ket{01}}{1/\sqrt{2}}=1/2\ket{00}+\sqrt{3}/2\ket{01} \nonumber
+ \end{equation}
+ 
+ Y en el segundo caso sería
+\begin{equation}
+\ket{\psi'}=\frac{1/2\ket{10} + 1/2\ket{11}}{1/\sqrt{2}}=1/\sqrt{2}\ket{10}+1/\sqrt{2}\ket{11} \nonumber
+\end{equation}
+\end{enumerate}
+
+\item 
+
+\item 
+
+\item Primero para ver condiciones necesarias tome $ \begin{pmatrix} x \\ y \end{pmatrix} $ y $ \begin{pmatrix} z \\ w \end{pmatrix} $. Vemos que el producto tensorial es igual a
+$ \begin{pmatrix}
+xz
+\\xw
+\\yz
+\\yw
+\end{pmatrix} $
+
+Encontramos el criterio de Peres-Horodecki que nos indica que una condición necesaria (y suficiente para dimensión 2 * 2). El criterio se trata de evaluar la matriz $ \ket{\phi}\bra{\phi} $, esta puede verse como $ \sum_{k,l\in B}\ket{k}\bra{l} $ donde $B$ son las proyecciones sobre los vectores de la base canónica de $ \mathbb{C}^2 \otimes \mathbb{C}^2$ es decir $ a\ket{00} $, $ b\ket{01} $, $ c\ket{10} $ y $ d\ket{11} $. A su vez $ \ket{ab}\bra{ab}= \ket{a}\bra{a} \otimes \ket{b}\bra{b}$. Luego la suma queda como $ \sum_{j,k\in \{0,1\}} \ket{j}\bra{j} \otimes \ket{k}\bra{k}$.
+
+Luego se calcula la matriz $ A^{T_B} $ es igual a $ \sum_{j,k\in \{0,1\}} \ket{j}\bra{j} \otimes (\ket{k}\bra{k})^T$. El criterio dice que $ \phi $ es entrelazado si $ A^{T_B} $ tiene algún valor negativo.
+\item  
+
+
+\end{enumerate}
+\end{document}
